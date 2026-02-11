@@ -10,3 +10,13 @@
 
     promisedFn().then(...).then(...)
 */
+
+function promisify(func) {
+    if (!func) return () => { };
+    
+    return function(...args) {
+        return new Promise((resolve) => {
+            func.apply(func, args.concat((result) => resolve(result)))
+        })
+    }
+}

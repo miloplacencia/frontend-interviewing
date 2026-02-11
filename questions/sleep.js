@@ -9,3 +9,7 @@
         console.log('world');
     }
 */
+
+function sleep(time) {
+    return new Promise((_, succ) => setTimeout(succ, time));
+}
